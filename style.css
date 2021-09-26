@@ -1,0 +1,77 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(107, 103, 103, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: Roboto-Light;
+    font-size: 18px;
+}
+
+.modal__body {
+    background-color: rgba(255, 255, 255, 1);
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal__title {
+    font-size: 25px;
+    width: 286px;
+    height: 56px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.modal__input {
+    border: 0;
+    border-radius: 10px;
+    font-size: 18px;
+    background-color: #FBFAFA;
+    color: rgba(0, 0, 0, .9);
+    padding: 10px 10px;
+    width: 313px;
+    height: 52px;
+    outline: 0;
+    outline-offset: 0;
+}
+
+.modal__button {
+    border: 0;
+    width: 313px;
+    height: 52px;
+    font-size: 18px;
+    background: #FFE717;
+    font-family: Roboto-Regular;
+}
+
+.modal__button:hover {
+    cursor: pointer;
+}
+
+.modal__info {
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    width: 313px;
+    height: 63px;
+}
+
+@font-face {
+    font-family: Roboto-Light;
+    /* Имя шрифта */
+    src: url(fonts/Roboto-Light.ttf);
+    /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(fonts/Roboto-Regular.ttf);
+}
