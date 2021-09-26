@@ -25,6 +25,7 @@ $(function() {
         e.preventDefault()
         _rc('send', 'order', {
             'phone': $(this).find('input[name=phone]').val(),
+            'name': 'Неизвестный контакт',
             'orderMethod': 'promocode',
             'callback': function(success, response) {
                 if (success) {
