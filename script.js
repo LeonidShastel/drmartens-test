@@ -11,7 +11,7 @@
     l.parentNode.insertBefore(i, l)
 })(window, document, 'script', 'https://collector.retailcrm.pro/w.js', '_rc');
 
-_rc('create', 'RC-15678717262-2');
+_rc('create', 'RC-19355918153-106');
 _rc('send', 'pageView');
 
 $(function() {
@@ -25,7 +25,7 @@ $(function() {
         e.preventDefault()
         _rc('send', 'order', {
             'phone': $(this).find('input[name=phone]').val(),
-            'orderMethod': 'promokey',
+            'orderMethod': 'promocode',
             'callback': function(success, response) {
                 if (success) {
                     alert('Спасибо, ваша заявка принята! Её номер: ' + response.id);
