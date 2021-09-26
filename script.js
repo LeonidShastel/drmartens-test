@@ -39,6 +39,6 @@ $(function() {
         return false;
     })
     $(function() {
-        $('#modal-phone').mask("+7 (999) 99 99 99")
+        $('#modal-phone').mask("+7 (999) 999 99 99")
     })
 })
