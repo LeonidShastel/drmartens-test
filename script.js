@@ -15,6 +15,22 @@ _rc('create', 'RC-19355918153-106');
 _rc('send', 'pageView');
 
 $(function() {
+    let timer = 10000;
+    if (getCookie('promocode_modal')) {
+        timer = 5000;
+    } else {
+        setCookie('promocode_modal', 'yes', 30)
+    }
+
+    setTimeout(() => {
+        $('#modal').fadeIn({ duration: 250 }).css('display', 'flex');
+    }, timer)
+    $('#modal').on('click', function(e) {
+        if ($('#modal').has(e.target).length === 0) {
+            $('#modal').fadeOut({ duration: 100 });
+        }
+    })
+
     $('#modal_send').submit(function(e) {
 
         if ($(this).find('input[name=phone]').val() === '') {
@@ -29,10 +45,13 @@ $(function() {
             'orderMethod': 'promocode',
             'callback': function(success, response) {
                 if (success) {
-                    alert('Спасибо, ваша заявка принята! Её номер: ' + response.id);
+                    $('#modal_send').html("<h2 class='modal_title'>Промокод отправлен</h2>").css('height', '120px')
                 } else {
-                    alert('К сожалению, не удалось отправить заявку.');
+                    $('#modal_send').html("<h2 class='modal_title'>Извините, произошла ошибка</h2>").css('height', '120px')
                 }
+                setTimeout(() => {
+                    $('#modal').fadeOut({ duration: 100 })
+                }, 2000)
             }
         });
 
@@ -42,3 +61,26 @@ $(function() {
         $('#modal-phone').mask("+7 (999) 999 99 99")
     })
 })
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return false;
+}
