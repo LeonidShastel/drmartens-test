@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(107, 103, 103, 1);
+    background-color: rgba(107, 103, 103, .8);
     justify-content: center;
     align-items: center;
     width: 100vw;
