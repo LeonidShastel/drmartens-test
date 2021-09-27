@@ -22,9 +22,15 @@ $(function() {
         setCookie('promocode_modal', 'yes', 30)
     }
 
-    setTimeout(() => {
+    $('#btn-modal-open').on('click', function(e) {
+        $('#modal').fadeIn({ duration: 250 }).css('display', 'flex');
+        clearInterval(openModal);
+    })
+
+    const openModal = setTimeout(() => {
         $('#modal').fadeIn({ duration: 250 }).css('display', 'flex');
     }, timer)
+
     $('#modal').on('click', function(e) {
         if ($('#modal').has(e.target).length === 0) {
             $('#modal').fadeOut({ duration: 100 });
